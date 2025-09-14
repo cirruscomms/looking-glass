@@ -5,6 +5,9 @@ body {
   margin-top:       1em;
   margin-bottom:    1em;
 }
+.header_bar img {
+  max-width:        50%;
+}
 .footer_bar {
   margin-top:       1em;
 }

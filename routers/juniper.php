@@ -109,6 +109,7 @@ final class Juniper extends Router {
       throw new Exception('The parameter is not an IP address or a hostname.');
     }
 
+    $is_ipv4 = match_ipv4($parameter);
     $cmd = new CommandBuilder();
     $cmd->add('traceroute');
 
@@ -116,7 +117,7 @@ final class Juniper extends Router {
       $cmd->add('routing-instance '.$routing_instance);
     }
 
-    if (match_ipv4($parameter)) {
+    if ($is_ipv4) {
       $cmd->add('as-number-lookup');
     }
     $cmd->add($parameter);
@@ -125,7 +126,11 @@ final class Juniper extends Router {
     if ($this->has_source_interface_id()) {
       $cmd->add('interface', $this->get_source_interface_id());
     }
-
+    if ($is_ipv4) {
+      $cmd->add('wait 1');
+    } else {
+      $cmd->add('wait 2 ttl 30');
+    }
     return array($cmd);
   }
 }
