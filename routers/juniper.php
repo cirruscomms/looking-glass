@@ -129,7 +129,7 @@ final class Juniper extends Router {
     if ($is_ipv4) {
       $cmd->add('wait 1');
     } else {
-      $cmd->add('wait 2 ttl 30');
+      $cmd->add('wait 2 ttl 28');
     }
     return array($cmd);
   }
