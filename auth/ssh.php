@@ -21,8 +21,8 @@
 
 require('vendor/autoload.php');
 
-use phpseclib3\Crypt\PublicKeyLoader;
-use phpseclib3\Net\SSH2;
+use phpseclib\Crypt\PublicKeyLoader;
+use phpseclib\Net\SSH2;
 
 require_once('authentication.php');
 require_once('includes/utils.php');

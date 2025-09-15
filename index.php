@@ -236,7 +236,11 @@ final class LookingGlass {
     print('<p class="text-center">');
 
     if ($this->frontpage['show_visitor_ip']) {
-      print('Your IP address: <code>'.htmlentities(get_requester_ip()).'</code><br>');
+      if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        print('Your IP address: '.htmlentities($_SERVER['HTTP_X_FORWARDED_FOR']).'<br>');
+      } else {
+        print('Your IP address: '.htmlentities($_SERVER['REMOTE_ADDR']).'<br>');
+      }
     }
 
     if ($this->frontpage['disclaimer']) {
