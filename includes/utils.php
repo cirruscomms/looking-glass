@@ -381,6 +381,13 @@ function quote($string) {
  */
 function get_requester_ip() {
   global $config;
+  /**
+  * Get real IP address from Cloudflare Proxy
+  */
+  if (!empty($_SERVER['HTTP_CF_CONNECTING_IP']) && is_valid_ip_address($_SERVER['HTTP_CF_CONNECTING_IP'])) {
+    return $_SERVER['HTTP_CF_CONNECTING_IP'];
+  }
+
   if ($config['misc']['enable_http_x_forwarded_for'] === true && isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
     // The user can pass several proxy's, which each one will add its own IP address,
     // so we like to take only the first IP address

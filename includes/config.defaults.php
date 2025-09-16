@@ -124,7 +124,7 @@ $config = array(
   // Antispam
   'antispam' => array(
     // ENable or disable antispam
-    'enabled' => false,
+    'enabled' => true,
     // Path to the SQLite database file
     'database_file' => 'looking-glass.db',
     // List of prefixes for which antispam won't trigger
