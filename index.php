@@ -249,7 +249,7 @@ final class LookingGlass {
     }
 
     if ($this->frontpage['peering_policy_file']) {
-      print('<button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#peering-policy"><i class="bi bi-list-task"></i> Peering Policy</button>');
+      print('<button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#peering-policy"><i class="bi bi-list-task"></i> BGP Communities</button>');
       print('<br><br>');
     }
 
@@ -270,7 +270,7 @@ final class LookingGlass {
     print('<div class="modal-dialog modal-dialog-centered modal-lg">');
     print('<div class="modal-content">');
     print('<div class="modal-header">');
-    print('<h5 class="modal-title">Peering Policy</h5>');
+    print('<h5 class="modal-title">BGP Communities</h5>');
     print('<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>');
     print('</div>');
     print('<div class="modal-body">');
