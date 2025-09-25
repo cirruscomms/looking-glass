@@ -141,7 +141,7 @@ class AntiSpam {
       log_to_file('Spam (obvious) detected from '.$remote_address);
       $this->reject_spammer();
     }
-    if ($in_period) {
+    if ($in_period && $degree > 21)  {
       log_to_file('Spam (in period) detected from '.$remote_address);
       $this->reject_spammer();
     }
